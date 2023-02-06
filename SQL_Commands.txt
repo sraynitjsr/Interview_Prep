@@ -1,0 +1,91 @@
+show databases;
+
+create database sray;
+
+use sray;
+
+create table Customers (
+    CustId int,
+    LastName varchar(255),
+    FirstName varchar(255),
+    Address varchar(255),
+    City varchar(255)
+);
+
+describe Customers;
+
+select * from Customers;
+
+insert into Customers (CustId, LastName, FirstName, Address, City) values ('100','Kohli','Virat','Delhi','Kanaut Place');
+
+insert into Customers (CustId, LastName, FirstName, Address, City) values ('101','Dravid','Rahul','BLR','Jaynagar');
+
+insert into Customers (CustId, LastName, FirstName, Address, City) values ('102','Tendulkar','Sachin','Mumbai','Dadar');
+
+insert into Customers (CustId, LastName, FirstName, Address, City) values ('103','Ganguly','Sourav','Kolkata','Saltlake');
+
+insert into Customers (CustId, LastName, FirstName, Address, City) values ('104','Ganguly','Sourav','Kolkata','Kestopur');
+
+insert into Customers (CustId, LastName, FirstName, Address, City) values ('105','Ganguly','Sourav','Kolkata','Ultadanga');
+
+insert into Customers (CustId, LastName, FirstName, Address) values ('105','Ganguly','Sourav','Kolkata');
+
+alter table Customers modify column CustId int NOT NULL;
+
+select distinct(Address) from Customers;
+
+SELECT COUNT(DISTINCT Address) FROM Customers;
+
+SELECT * FROM Customers WHERE Address='BLR';
+
+SELECT * FROM Customers WHERE CustId = 102;
+
+SELECT * FROM Customers WHERE CustId BETWEEN 101 AND 102;
+
+SELECT * FROM Customers WHERE City LIKE 'Jay%';
+
+SELECT * FROM Customers WHERE City IN ('Dadar','Jaynagar');
+
+SELECT * FROM Customers WHERE Address='BLR' AND City='Jaynagar';
+
+SELECT * FROM Customers WHERE NOT CustId=102;
+
+SELECT * FROM Customers WHERE NOT City='Saltlake' AND NOT CustId=100;
+
+select * from Customers order by CustId desc;
+
+select * from Customers order by Address, CustId desc;
+
+SELECT * FROM Customers ORDER BY Address ASC, CustId DESC;
+
+SELECT FirstName, LastName, Address FROM Customers WHERE City IS NULL;
+
+SELECT FirstName, LastName, Address FROM Customers WHERE City IS NOT NULL;
+
+UPDATE Customers SET City='Sarsuna' WHERE CustId=105;
+
+DELETE FROM Customers WHERE FirstName='Sourav';
+
+SELECT * FROM Customers;
+
+SELECT * FROM Customers order by CustId asc;
+
+SELECT * FROM Customers order by CustID desc limit 2;
+
+2nd Highest CustId  => SELECT * FROM Customers order by CustID desc limit 1, 1;
+
+2nd Lowest CustId   => SELECT * FROM Customers order by CustID asc limit 1, 1;
+
+Bottom 2 CustId     => SELECT * FROM Customers order by CustID asc limit 1, 2;
+
+Top 2 CustId        => SELECT * FROM Customers order by CustID desc limit 0, 2;
+
+SELECT MIN(CustId) AS SmallestCustId FROM Customers;
+
+SELECT MAX(CustId) AS SmallestCustId FROM Customers;
+
+SELECT SUM(CustId) FROM Customers;
+
+SELECT AVG(CustId) FROM Customers;
+
+SELECT count(address), City FROM Customers GROUP BY Address, City ORDER BY COUNT(CustId) DESC;
