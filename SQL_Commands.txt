@@ -80,6 +80,8 @@ Bottom 2 CustId     => SELECT * FROM Customers order by CustID asc limit 1, 2;
 
 Top 2 CustId        => SELECT * FROM Customers order by CustID desc limit 0, 2;
 
+Join 3 Tables => SELECT Orders.OrderID, Customers.CustomerName, Shippers.ShipperName FROM Orders INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID INNER JOIN Shippers ON Orders.ShipperID = Shippers.ShipperID Order By Orders.OrderID DESC Limit 1, 5;
+
 SELECT MIN(CustId) AS SmallestCustId FROM Customers;
 
 SELECT MAX(CustId) AS SmallestCustId FROM Customers;
