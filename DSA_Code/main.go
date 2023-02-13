@@ -4,4 +4,5 @@ func main() {
 	sixteen()
 	majority()
 	dutchNatioanlProbelm()
+	squareSortedArray()
 }
