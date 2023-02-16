@@ -4,7 +4,7 @@ import "fmt"
 
 func main() {
 
-	input := []int{0, 4, 3, 2, 7, 8, 2, 3, 1}
+	input := []int{0}
 	myMap := make(map[int]int)
 	for _, d := range input {
 		val, present := myMap[d]
